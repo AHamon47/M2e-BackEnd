@@ -29,5 +29,20 @@ public class MessageDirectory {
 		return messageRepository.findById(id);
 	}
 	
-	
+	public void deleteMessage(Integer id){
+		messageRepository.deleteById(id);
+	}
+
+	public void updateMessage(Message messageToUpdate, Integer id){
+		messageRepository.save(messageToUpdate);
+	}
+
+	public void patchMessage(Message messageToUpdate, Integer id){
+		Optional<Message> op = messageRepository.findById(id);
+		if(op.isPresent()){
+			Message message = op.get();
+			message.patch(messageToUpdate);
+			messageRepository.save(message);
+		}
+	}
 }
