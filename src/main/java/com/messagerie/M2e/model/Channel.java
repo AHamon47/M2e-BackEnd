@@ -12,7 +12,7 @@ public class Channel {
 	private User user;
 	@Column(name = "title")
 	private String title;
-	@Column(name = "description",columnDefinition = "TEXT")
+	@Column(name = "description", columnDefinition = "TEXT")
 	private String description;
 	@Column(name = "has_news")
 	private Boolean news;
