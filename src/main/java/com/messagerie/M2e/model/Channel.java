@@ -9,12 +9,12 @@ public class Channel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@ManyToOne
-	private User creator;
+	private User user;
 	@Column(name = "title")
 	private String title;
-	@Column(name = "description")
+	@Column(name = "description", columnDefinition = "TEXT")
 	private String description;
-	@Column(name = "hasNews")
+	@Column(name = "has_news")
 	private Boolean news;
 
 	public Channel(String title, String description, Boolean news) {
@@ -51,12 +51,12 @@ public class Channel {
 		this.description = description;
 	}
 	
-	public User getCreator() {
-		return creator;
+	public User getUser() {
+		return user;
 	}
 
-	public void setCreator(User creator) {
-		this.creator = creator;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Boolean hasNews() {
@@ -69,7 +69,7 @@ public class Channel {
 
 	@Override
 	public String toString() {
-		return "Channel [id=" + id + ", creator=" + creator + ", title=" + title + ", description=" + description + ", news=" + news + "]";
+		return "Channel [id=" + id + ", creator=" + user + ", title=" + title + ", description=" + description + ", news=" + news + "]";
 	}
 
 	public void patch(Channel dataToUpdate) {

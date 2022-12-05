@@ -14,7 +14,7 @@ public class Message {
 	private User user;
 	@ManyToOne
 	private Channel channel;
-	@Column(name = "content")
+	@Column(name = "content", columnDefinition = "TEXT")
 	private String content;
 	@Column(name = "post_date")
 	private Date postDate;
